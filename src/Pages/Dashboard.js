@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard</h1>
-      <UserPoints /> {/* Agrega el componente de puntos aquí */}
+      <UserPoints /> 
       <LogoutButton /> 
     </div>
   );

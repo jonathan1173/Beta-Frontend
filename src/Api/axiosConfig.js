@@ -1,4 +1,3 @@
-// api.js
 import axios from 'axios';
 
 // Configuración inicial de la instancia de axios

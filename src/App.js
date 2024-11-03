@@ -6,13 +6,16 @@ import PrivateRoute from './Components/PrivateRoute';
 import Register from './Pages/Register';
 import ChallengeList from './Pages/ChallengeList';
 import ChallengeDetails from './Pages/ChallengeDetail';
-
+import Navbar from './Components/Navbar';
+import Index from './Pages/index';
 
 function App() {
   return (
     <Router>
+      <Navbar/>
       <Routes>
 
+        <Route path="/" element={<Index />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<PrivateRoute />}>

@@ -18,8 +18,8 @@ const Login = () => {
       const { access, refresh } = response.data;
       localStorage.setItem('access_token', access);
       localStorage.setItem('refresh_token', refresh);
-      setError(null); // Resetea errores si el login es exitoso
-      navigate('/dashboard'); // Redirige a /dashboard tras el login exitoso
+      setError(null); 
+      navigate('/dashboard'); 
     } catch (error) {
       setError('Credenciales incorrectas');
     }

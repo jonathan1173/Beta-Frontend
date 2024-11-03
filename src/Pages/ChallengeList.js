@@ -15,7 +15,7 @@ const ChallengesList = () => {
             Authorization: `Bearer ${token}`
           }
         });
-        setChallenges(response.data.results);  // results si hay paginación
+        setChallenges(response.data.results);  
       } catch (err) {
         setError('No se pudieron cargar los desafíos');
       }
