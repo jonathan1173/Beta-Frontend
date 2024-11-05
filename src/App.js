@@ -8,23 +8,27 @@ import ChallengeList from './Pages/ChallengeList';
 import ChallengeDetails from './Pages/ChallengeDetail';
 import Navbar from './Components/Navbar';
 import Index from './Pages/index';
+import { AuthProvider } from "./Api/AuthContext";
 
 function App() {
   return (
-    <Router>
-      <Navbar/>
-      <Routes>
+    <AuthProvider>
+      <Router>
+        <Navbar />
+        <Routes>
 
-        <Route path="/" element={<Index />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route element={<PrivateRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/challenges" element={<ChallengeList />} />
-          <Route path="/challenges/:id" element={<ChallengeDetails />} />
-        </Route>
-      </Routes>
-    </Router>
+          <Route path="/" element={<Index />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          {/* rutas protegidas  */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/challenges" element={<ChallengeList />} />
+            <Route path="/challenges/:id" element={<ChallengeDetails />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

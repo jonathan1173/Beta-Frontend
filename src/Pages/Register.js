@@ -1,4 +1,3 @@
-// src/pages/Register.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +18,6 @@ const Register = () => {
         password,
       });
       if (response.status === 201) {
-        // Si el registro es exitoso, redirigir a login
         navigate('/login');
       }
     } catch (error) {

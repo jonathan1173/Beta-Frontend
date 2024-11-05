@@ -1,4 +1,3 @@
-// ChallengeEditor.js
 import React, { useState } from 'react';
 import CodeEditor from '../Api/CodeEditor';
 
