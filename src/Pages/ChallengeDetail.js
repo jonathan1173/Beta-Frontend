@@ -14,8 +14,8 @@ const ChallengeDetail = () => {
                 const token = localStorage.getItem('access_token');
                 const response = await axios.get(`http://localhost:8000/beta/challenges/challenges/${id}`, {
                     headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                        Authorization: `Bearer ${token}`, // Incluye el token aquí
+                    },
                 });
                 setChallenge(response.data);
             } catch (err) {
@@ -36,8 +36,7 @@ const ChallengeDetail = () => {
             <p>Dificultad: {challenge.difficulty}</p>
             <p>Categoría: {challenge.category}</p>
             <p>Lenguaje: {challenge.language}</p>
-            <p>Solución: {challenge.solution}</p>
-            <p>Prueba: {challenge.test}</p>
+            
             <ChallengeEditor 
                 initialTest={challenge.test} 
                 initialSolution={challenge.solution} 
