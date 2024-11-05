@@ -1,31 +1,35 @@
-import React from "react";
-import LogoutButton from "./LogoutButton";
-import { Link } from "react-router-dom";
-import { useAuth } from "../Api/AuthContext";
+import React from "react"
+import LogoutButton from "./LogoutButton"
+import { Link } from "react-router-dom"
+import { useAuth } from "../Api/AuthContext"
 
-function Navbar() {
-    const { isAuthenticated } = useAuth(); 
-    return (
-        <header>
-            <h1>Beta</h1>
-            <nav>
+export default function Component() {
+  const { isAuthenticated } = useAuth()
 
-                {isAuthenticated ? (
-                    <div>
-                        <Link to="challenges/">challenges</Link>
-                        <LogoutButton />
-
-                    </div>
-                ) : (
-                    <div>
-
-                        <Link to="/login">Iniciar Sesión</Link> 
-                        <Link to="/register">Register</Link> 
-                    </div>
-                )}
-            </nav>
-        </header>
-    );
+  return (
+    <header className="bg-gray-800 text-white p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <h1 className="text-2xl font-bold">Beta</h1>
+        <nav>
+          {isAuthenticated ? (
+            <div className="flex items-center space-x-4">
+              <Link to="challenges/" className="hover:text-gray-300 transition-colors">
+                Challenges
+              </Link>
+              <LogoutButton />
+            </div>
+          ) : (
+            <div className="flex items-center space-x-4">
+              <Link to="/login" className="hover:text-gray-300 transition-colors">
+                Iniciar Sesión
+              </Link>
+              <Link to="/register" className="hover:text-gray-300 transition-colors">
+                Register
+              </Link>
+            </div>
+          )}
+        </nav>
+      </div>
+    </header>
+  )
 }
-
-export default Navbar;
